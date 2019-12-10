@@ -27,12 +27,12 @@
          transform: rotate(45deg) translate(5px, 5px);
        }
        //Line 2- hidden
-       &nth-child(2){
+       &:nth-child(2){
          opacity: 0; //hide it
        }
        //Line 3- rotate
-       &nth-child(3){
-         transform: rotate(-45deg) translate(7px -6px);
+       &:nth-child(3){
+         transform: rotate(-45deg) translate(7px, -6px);
        }
      }
    }

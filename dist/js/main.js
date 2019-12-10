@@ -1,5 +1,5 @@
 //Select DOM(Document-Object-Model) Items
-const menuBtn = document.querySelector("menu-btn");//Man kann alles verwenden classes, ids was auch immer
+const menuBtn = document.querySelector(".menu-btn");//Man kann alles verwenden classes, ids was auch immer
 const menu = document.querySelector(".menu");
 const menuNav = document.querySelector(".menu-nav");
 const menuBranding = document.querySelector(".menu-branding");
