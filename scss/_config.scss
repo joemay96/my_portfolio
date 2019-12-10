@@ -35,3 +35,29 @@ $background-opacity: 0.9;
     }
   }
 }
+
+//Media Query Mixins
+@mixin mediaSm{
+  //media Querry  alles was hier drin ist passiert wenn der Screen 500 oder weniger Pixel hat
+  @media screen and (max-width: 500px) {
+    @content; //Überall wo wirs einfügen wird der content einfach hinzugefügt
+  }
+}
+
+@mixin mediaMd{
+  @media screen and (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin mediaLg{
+  @media screen and (min-width: 769) and (max-width: 1170){
+    @content;
+  }
+}
+
+@mixin mediaXl{
+  @media screen and (min-width: 1171px){
+    @content;
+  }
+}
