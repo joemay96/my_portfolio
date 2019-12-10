@@ -1,5 +1,6 @@
 //importen von _config.scss
 @import "config";
+@import "menu";
 
 *{
   box-sizing: border-box;
@@ -42,7 +43,7 @@ a {
 header{
   position: fixed;  //Damit das Menufeld immer oben am Rand ist
   z-index: 2; //je näher die Zahl bei 100 ist, desto näher ist es bei einem selbst
-  widht: 100%;
+  width: 100%;
 }
 
 .text-secondary {
