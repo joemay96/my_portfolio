@@ -37,3 +37,103 @@
      }
    }
  }
+
+//Menu overlay
+.menu {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  opacity: 0.9; //Damit man hindurchschauen kann
+  visibility: hidden; //Damit man es nicht sehen kann -->erst wenn der menübutton gedrückt wird
+
+  &.show{
+    visibility: visible;
+  }
+
+  &-branding,
+  &-nav{   //Hierbei wird einfach menu branding geadded und es gilt für menu-nav
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;        //von oben nach unten
+    justify-content: center;    //von rechts nach links
+    float: left;
+    width: 50%;
+    height: 100vh;
+    overflow: hidden; //Wir wollen keine scrollbars
+  }
+
+  &-nav{
+    margin: 0;
+    padding: 0;
+    background: darken($primary-color, 5); //eine sass function
+    list-style: none;
+
+    transform: translate3d(0, -100%, 0); //dies bringt es langsam nach oben an den Bildschirmrand
+    @include easeOut;
+
+    &.show{
+      //Silde in from top
+      transform: translate3d(0,0,0);  //-->Nun slidet es von oben nach unten rein
+    }
+  }
+
+  //Branding Side
+  &-branding{
+    background: $primary-color;
+    transform: translate3d(0,100%,0);
+    @include easeOut;
+
+    //Slide in from bottom
+    &.show{
+      transform: translate3d(0,0,0);
+    }
+
+    .portrait{
+      width: 250px;
+      height: 250px;
+      background:url("../img/portrait.jpg");
+      border-radius: 50%;
+      border: solid 3px $secondary-color;
+    }
+  }
+
+  .nav-item{
+    transform: translate3d(600px,0,0);
+    @include easeOut;
+
+    &.show{
+      //Slide in from right
+      transform: translate3d(0,0,0);
+    }
+
+    &.current > a { //Wir wollen dies für genau diesen Link
+      color: $secondary-color;
+    }
+  }
+
+  .nav-link{
+    display: inline-block;
+    position: relative;
+    font-size: 30px;
+    text-transform: uppercase;
+    padding: 1rem 0;
+    font-weight: 300;
+    color:#fff;
+    text-decoration: none;
+    @include easeOut;
+
+    &:hover{
+      color:$secondary-color;
+    }
+  }
+
+}
+
+
+
+//Delay each nav-item slide by 0.1 sek
+@for $x from 1 through 4 {
+  .nav-item:nth-child(#{$x}) {//Damit man auf die Variable x zugrifen kann
+    transition-delay: $x * 0.1s;
+  }
+}
